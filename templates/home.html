@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this is a test</title>
+</head>
+<body>
+<a href="{% url 'add' 333 555 %}">  这个是一个个人使用的test网站</a>
+<p>{{ abcc }}</p>
+
+    {% for i in list %}
+    <p>{{ i }}</p>
+    {% endfor %}
+admin:{{ info_dict.user }}  about: {{ info_dict.content }}
+<hr>
+{% for i,j in info_dict.items %}
+    <p>{{ i }} --- {{ j }}</p>
+{% endfor %}
+<hr>
+这里forloop.last 表示for循环的最后一个元素。
+{% for  i in list2 %}
+{{ i }} {% if not forloop.last %}, {% endif %}
+{% endfor %}
+<ul>
+    {% for i in list4 %}
+    <li>{{ i }}</li>
+        {% empty %}
+        <li>空。。</li>
+    {% endfor %}
+</ul>
+
+{% if  var >= 90 %}
+优秀
+{% elif var >= 70 %}
+良好
+{% elif var >= 60  %}
+及格
+{% else  %}
+不及格
+{% endif %}
+
+{% if "aa" in list %}
+aa在listabc里面
+    {{ request.path }}
+    {{ request.user}}
+    {{ request.GET.urlencode }}
+{% else %}
+不在listabc里面
+
+{% endif %}
+
+
+</body>
+</html>
